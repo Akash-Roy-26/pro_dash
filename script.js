@@ -45,13 +45,13 @@ async function fetchNutrition() {
         return;
     }
 
-    // Clear previous results
+    
     resultCard.style.display = 'none';
     nutritionTable.innerHTML = '';
     foodName.textContent = '';
     foodQuantity.textContent = '';
 
-    const API_KEY = '5jU9jor3WKD1Kl+gAg81wA==4CvY4FoY9pBpyQiS'; // Replace with your CalorieNinjas API key
+    const API_KEY = '5jU9jor3WKD1Kl+gAg81wA==4CvY4FoY9pBpyQiS';
     const url = `https://api.calorieninjas.com/v1/nutrition?query=${encodeURIComponent(foodInput)}`;
 
     try {
@@ -73,7 +73,7 @@ async function fetchNutrition() {
         foodName.textContent = `Nutritional Values for "${foodInput}"`;
         foodQuantity.textContent = `Quantity: ${inputQuantity} grams`;
 
-        // Nutritional information scaled by the user-input quantity
+        
         const rows = [
             { nutrient: 'Calories', quantity: food.calories * scalingFactor, unit: 'kcal' },
             { nutrient: 'Protein', quantity: food.protein_g * scalingFactor, unit: 'g' },
@@ -216,18 +216,18 @@ function calculateBloodSugar() {
   }
 
   function openTab(tabId) {
-    // Hide all tabs
+    
     const tabs = document.querySelectorAll(".tab-content");
     tabs.forEach(tab => tab.classList.remove("active"));
 
-    // Remove active class from buttons
+    
     const buttons = document.querySelectorAll(".sidebar .btn.tab-btn");
     buttons.forEach(button => button.classList.remove("active"));
 
-    // Show the selected tab
+    
     document.getElementById(tabId).classList.add("active");
 
-    // Highlight the selected button
+    
     const button = Array.from(buttons).find(btn => btn.textContent.includes(tabId.replace('tab', 'Tab')));
     if (button) button.classList.add("active");
   }
